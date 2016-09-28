@@ -2,25 +2,34 @@
 #include <windows.h>
 
 using namespace std;
-
+void proverka(char c);
 int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    int i;
-    char c;
-    char ch[]={'а', 'А', 'о', 'О', 'э', 'Э', 'и', 'И', 'у', 'У', 'Ы', 'ы', 'е', 'Е', 'ё', 'Ё', 'ю', 'Ю', 'я', 'Я'};
+    char a;
     cout << "Введите букву: \n";
-    cin >> c;
+    cin >> a;
+    proverka(a);
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+return 0;
+}
+
+void proverka(char c)
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    int i;
+    char ch[]={'а', 'А', 'о', 'О', 'э', 'Э', 'и', 'И', 'у', 'У', 'Ы', 'ы', 'е', 'Е', 'ё', 'Ё', 'ю', 'Ю', 'я', 'Я'};
     for (i = 0; i < 20; i++)
-    {
+{
         if (c == ch[i])
         {
             cout << "Буква является гласной ";
             break;
         }
-    }
+}
         if (i == 20)
             cout << "Буква не является гласной ";
-    return 0;
 }

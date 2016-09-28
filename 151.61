@@ -1,0 +1,24 @@
+# labs.Pl
+1c2s
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+    int NullStr = 0;
+    string Str;
+    ifstream file("file1.txt");
+
+    while (getline(file,Str))
+    {
+        if (Str.empty())
+        {
+            NullStr++;
+        }
+    }
+    cout << "Kolichestvo pustih strok: " << NullStr;
+return 0;
+}
+

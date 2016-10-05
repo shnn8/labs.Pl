@@ -7,7 +7,9 @@ using namespace std;
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    int array[9][9];
+    int **array = new int* [9];
+    for (int i = 0; i < 9; i++)
+        array[i] = new int[9];
     srand( time(0) );
     for (int i = 0; i < 9; i++)
     {
@@ -29,7 +31,8 @@ int main()
         sum1 += array[9-i-1][i];
     }
     double S = sum + sum1 - array[4][4];
+    for (int i = 0; i < 9; i++)
+        delete [] array[i];
     cout <<  "\nСумма заштрихованной области = " << S;
     return 0;
 }
-

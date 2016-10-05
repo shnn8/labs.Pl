@@ -5,39 +5,24 @@ using namespace std;
 int main()
 {
 int Z;
-cout << "Vvedite kolichestvo elementov\n";
-cin >> Z;
-int i = 0;
-char defaultArray[Z];
-int k = 0;
-cout << "Vvedite elementi " << endl;
-for (i = 0; i < Z; i++)
+int i;
+int count = 0;
+string STR;
+ifstream fileName("text.txt");
+while (getline(fileName, STR))
 {
-    cin >> defaultArray[i];
+        for (i = 1; i < STR.length(); i++)
+        {
+            if (STR[i] >= STR[i-1])
+            {
+                count++;
+    s        }
+        }
 }
-i = 0;
-ofstream file5("file5.txt");
-file5 << defaultArray;
-file5.close();
-
-ifstream ffile5("file5.txt");
-int Z1=Z+1;
-char secondArray[Z1];
-ffile5.getline(secondArray, sizeof(secondArray));
-// cout << secondArray << endl; // Проверка
-char max = secondArray[0];
-for (i = 1; i < Z; i++)
-{
-    if (secondArray[i] >= max)
-    {
-        max = secondArray[i];
-        k++;
-    }
-}
-// cout << max << endl; // Проверка
-if (Z == k+1) // т.к k меньше на 1
+if (STR.length() == count+1) // т.к k меньше на 1
     cout << "po vozrastaniu";
 else
     cout << "ne po vozrastaniu";
+cout << STR;
 return 0;
 }

@@ -1,38 +1,35 @@
-#include <iostream>
-#include <ctime>
-#include <iomanip>
-#include <cstdlib>
-using namespace std;
-
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    int **array = new int* [9];
-    for (int i = 0; i < 9; i++)
-        array[i] = new int[9];
-    srand( time(0) );
-    for (int i = 0; i < 9; i++)
-    {
-        for (int j = 0; j < 9; j++)
-    {
-            array[i][j] = rand()%9+1;
-            cout << array[i][j];
-            cout << endl;
-    }
-    }
-    double sum = 0;
-    for (int i = 0; i < 9; i++)
-    {
-        sum += array[i][i];
-    }
-    double sum1 = 0;
-    for (int i = 0; i < 9; i++)
-    {
-        sum1 += array[9-i-1][i];
-    }
-    double S = sum + sum1 - array[4][4];
-    for (int i = 0; i < 9; i++)
-        delete [] array[i];
-    cout <<  "\nСумма заштрихованной области = " << S;
-    return 0;
+	setlocale(LC_ALL, "Russian");
+	int **array = new int*[9];
+	for (int i = 0; i < 9; i++)
+		array[i] = new int[9];
+	srand(time(0));
+	for (int i = 0; i < 9; i++)
+	{
+		for (int j = 0; j < 9; j++)
+		{
+			array[i][j] = rand() % 9 + 1;
+			cout << array[i][j];
+		}
+		cout << endl;
+	}
+	double sum = 0;
+	for (int i = 0; i < 9; i++)
+	{
+		sum += array[i][i];
+	}
+	double sum1 = 0;
+	for (int i = 0; i < 9; i++)
+	{
+		sum1 += array[9 - i - 1][i];
+	}
+
+	double S = sum + sum1 - array[4][4];
+
+	for (int i = 0; i < 9; i++)
+		delete[] array[i];
+	cout << "\nСумма заштрихованной области = " << S << endl;
+	system("pause");
+	return 0;
 }

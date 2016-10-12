@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+void Func(int* dig, int z = 0)
+{
+    int i;
+    cout << "Digits are: ";
+    for(i = 0; i < z; i++)
+        cout << dig[i];
+    cout << endl;
+
+}
+void Func(char* word, int zz = 0)
+{
+    int i;
+    cout << "Words are: ";
+    for (i = 0; i < zz; i++)
+        cout << word[i];
+    cout << endl;
+}
+int main()
+{
+    string defaultString;
+    int digitArray[10];
+    char wordsArray[10];
+    int j = 0;
+    int k = 0;
+    cin >> defaultString;
+    int currentSymbol = 0;
+    for (int i = 0; i < defaultString.length(); i++)
+    {
+        currentSymbol = defaultString[i] - '0';
+        if (isdigit(defaultString[i]))
+        {
+            digitArray[j] = currentSymbol;
+            j++;
+        }
+        else
+        {
+            wordsArray[k] = defaultString[i];
+            k++;
+        }
+    }
+
+    Func(digitArray,j);
+    Func(wordsArray,k);
+    return 0;
+}

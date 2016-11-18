@@ -1,12 +1,12 @@
 #include <iostream>
 #include <string.h>
 using namespace std;
-void changer(char *secondString, int M)
+void changer(char *secondString, int *M)
 {
-    int k=0,k1=0,M1=M*2;
+    int k=0,k1=0,M1=*M*2;
     char finalString[M1];
     char ch[]={'i', 'e', 'y', 'u', 'o', 'a'};
-    for (int j = 0; j < M; j++)
+    for (int j = 0; j < *M; j++)
     {
         while (k<6)
         {
@@ -41,11 +41,12 @@ void changer(char *secondString, int M)
 
 int main()
 {
-    char defaultString[10];
-    for (int i = 0; i < 10; i++)
+    int N = 10;
+    char defaultString[N];
+    for (int i = 0; i < N; i++)
     {
         cin >> defaultString[i];
     }
-    changer(defaultString,10);
+    changer(defaultString,&N);
     return 0;
 }

@@ -1,0 +1,51 @@
+#include <iostream>
+#include <string.h>
+using namespace std;
+void changer(char *secondString, int M)
+{
+    int k=0,k1=0,M1=M*2;
+    char finalString[M1];
+    char ch[]={'i', 'e', 'y', 'u', 'o', 'a'};
+    for (int j = 0; j < M; j++)
+    {
+        while (k<6)
+        {
+            if (*(secondString+j) == *(ch+k))
+            {
+                *(finalString+k1) = *(secondString+j);
+                k1++;
+                *(finalString+k1) = *(secondString+j);
+                break;
+            }
+            k++;
+        }
+        if (k == 6)
+        {
+            if (*(secondString+j) == *(secondString+j+1))
+            {
+                *(finalString+k1) = *(secondString+j);
+                j++;
+            }
+            else
+                *(finalString+k1) = *(secondString+j);
+        }
+        k1++;
+    }
+    finalString[k1] = '\0';
+    for (int j = 0; j < k1; j++)
+    {
+        cout << *(finalString+j);
+    }
+    system ("PAUSE");
+}
+
+int main()
+{
+    char defaultString[10];
+    for (int i = 0; i < 10; i++)
+    {
+        cin >> defaultString[i];
+    }
+    changer(defaultString,10);
+    return 0;
+}
